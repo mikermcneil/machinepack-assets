@@ -1,0 +1,29 @@
+{
+  "name": "@treelinehq/mikermcneil--machinepack-assets",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Bundlify all the things.",
+  "keywords": [
+    "Assets",
+    "machines",
+    "machinepack"
+  ],
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "treeline-installer": "^1.0.3",
+    "machine": "^10.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "postinstall": "node ./node_modules/treeline-installer/bin/treeline-installer --treelineApiUrl='http://localhost:1492'"
+  },
+  "machinepack": {
+    "id": "ea2e820e-2db0-4a71-9184-89377edc857a",
+    "friendlyName": "Assets",
+    "machineDir": "machines/",
+    "machines": [
+      "minify-javascript-assets"
+    ]
+  }
+}
