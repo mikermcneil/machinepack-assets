@@ -16,7 +16,7 @@ module.exports = {
   sync: false,
 
 
-  environment: ['req', 'res', 'sails'],
+  environment: [],
 
 
   inputs: {
@@ -36,7 +36,6 @@ module.exports = {
     error: {
       friendlyName: 'error',
       description: 'Unexpected error occurred.',
-      void: true,
     },
 
     success: {
@@ -60,7 +59,7 @@ module.exports = {
     // List contents of a directory on the local filesystem.
     Filesystem.ls({
       dir: inputs.dir,
-      depth: 100,
+      depth: 10,
       includeFiles: true,
       includeDirs: false,
       includeSymlinks: false,
@@ -77,6 +76,12 @@ module.exports = {
           initialValue: '',
           series: true,
           iteratee: function(_inputs, exits) {
+
+            // console.log('\n\n');
+            // console.log('thisMachine: ',env.thisMachine());
+            // console.log('Machine version: '+ env.thisMachine().constructor.inspect());
+            // console.log('here are my inputs:: ',_inputs);
+            // console.log('wtf where are my exits: ',exits);
 
             // If this is not a .js file, we'll skip it.
             if (path.extname(_inputs.item) !== '.js') {
