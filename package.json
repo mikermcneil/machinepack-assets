@@ -1,8 +1,7 @@
 {
-  "name": "@treelinehq/mikermcneil--machinepack-assets",
-  "private": true,
+  "name": "machinepack-assets",
   "version": "0.0.10",
-  "description": "Bundlify all the things.",
+  "description": "Experimental utilities for preparing fonts, images, JavaScript files, and LESS stylesheets, then publishing them to NPM as production-ready asset packages.",
   "keywords": [
     "Assets",
     "machines",
