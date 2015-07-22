@@ -23,14 +23,14 @@ module.exports = {
 
     srcDir: {
       friendlyName: 'srcDir',
-      description: '',
+      description: 'The path to the source directory where assets should be pulled from.  If specified as a relative path, this will be resolved relative to the current working directory.',
       example: '/code/treeline-assets',
       required: true,
     },
 
     prodPkgName: {
       friendlyName: 'prodPkgName',
-      description: '',
+      description: 'The NPM module name for the production package.  If omitted, this will simply default to the module name of the development package with a `-prod` suffix.',
       example: '@treelinehq/whatever',
     },
 
@@ -94,7 +94,8 @@ module.exports = {
     },
 
     alreadyExists: {
-      friendlyName: 'alreadyExists',
+      friendlyName: 'alreadyPublishedAtThisVersion',
+      description: 'The production asset package has already been published at this version. Please use `npm version` to bump the version of this package, `git push && git push --tags`, then `npm publish` to try again.',
       void: true,
     },
 
