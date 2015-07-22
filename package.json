@@ -1,7 +1,7 @@
 {
   "name": "@treelinehq/mikermcneil--machinepack-assets",
   "private": true,
-  "version": "0.0.2",
+  "version": "0.0.9",
   "description": "Bundlify all the things.",
   "keywords": [
     "Assets",
@@ -23,7 +23,14 @@
     "friendlyName": "Assets",
     "machineDir": "machines/",
     "machines": [
-      "minify-javascript-assets"
+      "minify-javascript-assets",
+      "copy-fonts",
+      "copy-images",
+      "productionify",
+      "write-readme-and-package-json",
+      "write-minified-javascript",
+      "write-compiled-stylesheet-if-relevant",
+      "compile-less-stylesheets"
     ]
   }
 }

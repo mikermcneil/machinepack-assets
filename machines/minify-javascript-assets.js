@@ -1,7 +1,7 @@
 module.exports = {
 
 
-  friendlyName: 'Minify JavaScript assets',
+  friendlyName: 'Compile JavaScript files',
 
 
   description: 'Generate a minified js string by reading, concating, and minifying the contents of the specified directory.',
@@ -10,7 +10,7 @@ module.exports = {
   extendedDescription: '',
 
 
-  cacheable: false,
+  cacheable: true,
 
 
   sync: false,
@@ -24,7 +24,7 @@ module.exports = {
     dir: {
       friendlyName: 'Directory',
       description: 'The path to the folder of JavaScript assets.',
-      example: '',
+      example: './my-stuff/my-proj/js',
       required: true,
     },
 
@@ -42,6 +42,12 @@ module.exports = {
       friendlyName: 'then',
       description: 'Returns the minified JavaScript string (from all the accumulated js files in the specified directory).',
       example: 'a whole bunch of minified javascript',
+    },
+
+    doesNotExist: {
+      friendlyName: 'does not exist',
+      description: 'Nothing exists at the specified directory path.',
+      example: 'abc123',
     },
 
   },
@@ -67,6 +73,10 @@ module.exports = {
     }).exec({
       // An unexpected error occurred.
       error: exits.error,
+      // The specified source js path does not exist.
+      doesNotExist: function() {
+        return exits.doesNotExist();
+      },
       // OK.
       success: function(dirContents) {
         // Run some logic (the "iteratee") once for each item of an array, accumulating a single result.
