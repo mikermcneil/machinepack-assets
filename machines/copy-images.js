@@ -16,10 +16,24 @@ module.exports = {
   sync: false,
 
 
-  environment: ['req', 'res', 'sails'],
+  environment: [],
 
 
   inputs: {
+
+    imgSrcPath: {
+      friendlyName: 'Images source path',
+      description: 'The directory where the source image files live.  It not specified as an absolute path, this will be resolved relative to the current working directory.',
+      example: './foo/images',
+      required: true,
+    },
+
+    outputDir: {
+      friendlyName: 'Output directory',
+      description: 'The path to the temporary directory where production assets are being compiled.',
+      example: './my-projects/some-assets/.tmp/processing',
+      required: true,
+    },
 
   },
 
@@ -41,7 +55,24 @@ module.exports = {
 
 
   fn: function(inputs, exits, env) {
-    return exits.success();
+    var path = require('path');
+    var Filesystem = require('@treelinehq/treelinehq/machinepack-fs');
+
+    // Copy over images.
+    Filesystem.cp({
+      source: path.resolve(inputs.imgSrcPath),
+      destination: path.resolve(inputs.outputDir, 'images/'),
+    }).exec({
+      error: exits.error,
+      doesNotExist: function() {
+        // If there is no images folder, that's cool too-- just exit as "success".
+        return exits.success();
+      },
+      success: function() {
+        return exits.success();
+      }
+    }); //</copy images>
+
   },
 
 
