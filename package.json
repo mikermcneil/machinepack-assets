@@ -1,6 +1,6 @@
 {
   "name": "machinepack-assets",
-  "version": "0.0.10",
+  "version": "1.0.0",
   "description": "Experimental utilities for preparing fonts, images, JavaScript files, and LESS stylesheets, then publishing them to NPM as production-ready asset packages.",
   "keywords": [
     "Assets",
