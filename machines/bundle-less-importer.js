@@ -16,7 +16,7 @@ module.exports = {
   sync: false,
 
 
-  environment: ['req', 'res', 'sails'],
+  environment: [],
 
 
   inputs: {
